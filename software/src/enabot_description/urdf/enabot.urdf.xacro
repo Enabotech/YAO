@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<robot name="enabot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <!-- Import Rviz colors -->
+  <xacro:include filename="$(find enabot_description)/urdf/materials.xacro" />
+  <!-- Import utilities -->
+  <xacro:include filename="$(find enabot_description)/urdf/utilities.xacro" />
+  <!--Import the enabot macro -->
+  <xacro:include filename="$(find enabot_description)/urdf/enabot.xacro"/>
+  <!--Import the enabot servo gripper macro -->
+  <xacro:include filename="$(find enabot_description)/urdf/enabot_servo_gripper.xacro"/>
+ <!-- Import Gazebo plugins -->
+  <xacro:include filename="$(find enabot_description)/gazebo/gazebo.urdf.xacro"/>
+
+  <!-- Fix to world just for testing -->
+  <link name="world"/>
+
+  <!--enabot-->
+  <xacro:enabot name="enabot" hardware_interface="$(arg prefix)" parent="world">
+    <origin xyz="0 0 0.1" rpy="0 0 0" />
+  </xacro:enabot>
+
+  <!--right gripper
+  <xacro:enabot_servo_gripper name="gripper_r" hardware_interface="$(arg prefix)" parent="enabot_link_7_r">
+    <origin xyz="0 0 0.007" rpy="0 0 ${PI}" />
+  </xacro:enabot_servo_gripper> -->
+
+  <!--left gripper
+  <xacro:enabot_servo_gripper name="gripper_l" hardware_interface="$(arg prefix)" parent="enabot_link_7_l">
+    <origin xyz="0 0 0.007" rpy="0 0 ${PI}" />
+  </xacro:enabot_servo_gripper> -->
+
+</robot>

@@ -1,0 +1,60 @@
+# joint_limits.yaml allows the dynamics properties specified in the URDF to be overwritten or augmented as needed    
+# Specific joint properties can be changed with the keys [max_position, min_position, max_velocity, max_acceleration]
+# Joint limits can be turned off with [has_velocity_limits, has_acceleration_limits]
+joint_limits:
+  enabot_joint_1_r:
+    has_position_limits: true
+    min_position: -2.94087978961
+    max_position:  2.94087978961
+    has_velocity_limits: true
+    max_velocity: 3.14159265359 
+    has_acceleration_limits: false
+    max_acceleration: 0
+  enabot_joint_2_r:
+    has_position_limits: true
+    min_position: -2.50454747661
+    max_position:  0.75921822462
+    has_velocity_limits: true
+    max_velocity: 3.14159265359 
+    has_acceleration_limits: false
+    max_acceleration: 0
+  enabot_joint_3_r:
+    has_position_limits: true
+    min_position: -2.15548162621
+    max_position:  1.39626340160
+    has_velocity_limits: true
+    max_velocity: 3.14159265359 
+    has_acceleration_limits: false
+    max_acceleration: 0
+  enabot_joint_4_r:
+    has_position_limits: true
+    min_position: -5.06145483078
+    max_position:  5.06145483078
+    has_velocity_limits: true
+    max_velocity: 6.98131700798 
+    has_acceleration_limits: false
+    max_acceleration: 0
+  enabot_joint_5_r:
+    has_position_limits: true
+    min_position: -1.53588974176
+    max_position:  2.40855436775
+    has_velocity_limits: true
+    max_velocity: 6.98131700798 
+    has_acceleration_limits: false
+    max_acceleration: 0
+  enabot_joint_6_r:
+    has_position_limits: true
+    min_position: -3.99680398707
+    max_position:  3.99680398707
+    has_velocity_limits: true
+    max_velocity: 6.98131700798 
+    has_acceleration_limits: false
+    max_acceleration: 0
+  enabot_joint_7_r:
+    has_position_limits: true
+    min_position: -2.94087978961
+    max_position:  2.94087978961
+    has_velocity_limits: true
+    max_velocity: 3.14159265359 
+    has_acceleration_limits: false
+    max_acceleration: 0

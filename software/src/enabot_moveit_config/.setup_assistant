@@ -1,0 +1,10 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: enabot_description
+    relative_path: urdf/enabot.urdf1.xacro
+  SRDF:
+    relative_path: config/enabot.srdf
+  CONFIG:
+    author_name: Ray
+    author_email: ray@gmail.com
+    generated_timestamp: 1571194686

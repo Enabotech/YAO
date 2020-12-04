@@ -1,0 +1,8 @@
+﻿"axis4_steering_engine_length"= 44.17
+"axis4_steering_engine_width"= 22.95
+"axis4_steering_engine_axis"= 11.5
+"axis4_steering_wheel_dim"=20
+"axis4_crb_outer_dim"= 70
+"axis4_crb_inner_dim"= 30
+"axis4_crb_outer_hole_dim"= 65
+"axis4_crb_inner_hole_dim"= 35

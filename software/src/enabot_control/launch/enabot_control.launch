@@ -1,0 +1,6 @@
+<launch>
+
+	<node pkg="enabot_control" name="enabot_control" type="enabot_control" output="screen"> <!--launch-prefix="xterm−e"-->
+	</node>
+
+</launch>
