@@ -1,2 +1,2 @@
 # Enabot
-Free people from housework.
+Free people from heavy burden of life.
