@@ -32,7 +32,7 @@ int MotorControllerInit(GCon *g)
 	x_e(GVersion(buf, sizeof(buf))); //library version
 	cout << "Library versions: " << buf << '\n';
 
-	char ipaddr[] = "192.168.99.11";
+	char ipaddr[] = "192.168.0.66";
 	char macaddr[] = "00:50:4C:20:42:A0";
 	x_e(GAssign(ipaddr, macaddr)); //assign an ip address to a known MAC
 
@@ -45,7 +45,7 @@ int MotorControllerInit(GCon *g)
 
 	cout << "Connecting to hardware\n";
 	//Basic connections
-	char cmd[] = "192.168.99.11 -d -ALL";
+	char cmd[] = "192.168.0.66 -d -ALL";
 	x_e(GOpen(cmd, g)); //connect and assign a value to g. 
 	x_e(GInfo(*g, buf, sizeof(buf))); //grab connection string
 	cout << buf << '\n';
