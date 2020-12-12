@@ -19,7 +19,7 @@ public:
 	virtual ~RobComm();
 
 	//bool flagDoComm;
-	int nrOfJoints;
+	int JointsNum;
 	float Rx_buf_right[MAX_JOINT_NUM - 1];    
 	float Rx_buf_left[MAX_JOINT_NUM - 1];                  
 	float Tx_buf[MAX_JOINT_NUM*2 - 1];

@@ -48,7 +48,7 @@ namespace dual_arm_robot
 			robotState l_setPointState;
 			robotState l_targetState;
 
-			int nrOfJoints; /* 5 */
+			int JointsNum;
 			double cycleTime; /* in ms */
 
 			//control data def	
@@ -62,7 +62,7 @@ namespace dual_arm_robot
 
 			RobComm Comm;
 
-			ros::NodeHandle n;
+			ros::NodeHandle nh;
 			sensor_msgs::JointState r_msgJointsCurrent;	/* the current joints */
 			sensor_msgs::JointState l_msgJointsCurrent;	/* the current joints */
 			ros::Publisher  pubJoints; /* publishes the current joint positions  */

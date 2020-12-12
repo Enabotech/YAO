@@ -1,6 +1,9 @@
 #include <galil_dmc_4060.h>
 #include <string>
 
+//#define POS_TRACK_MODE
+#define CONTOUR_MODE
+
 int CurPos[8], Delta[8];
 
 
@@ -59,7 +62,7 @@ int MotorControllerInit(GCon *g)
 	x_e(GCmd(*g, "DE  0,  0,  0,  0,  0,  0,  0,  0")); //When using stepper motors, the DE command defines the main encoder position
 
 
-#if 0		//position track mode
+#if POS_TRACK_MODE
 	x_e(GCmd(*g, "PT  1,  1,  1,  1,  1,  1,  1,  1")); //position tracking mode
 
 	//Positon tracking mode setting
@@ -67,12 +70,14 @@ int MotorControllerInit(GCon *g)
 	x_e(GCmd(*g, "SP 200000, 200000, 200000, 200000, 200000, 200000, 200000, 200000")); //set up speed
 	x_e(GCmd(*g, "AC 500000, 500000, 500000, 500000, 500000, 500000, 500000, 500000")); //acceleration
 	x_e(GCmd(*g, "DC 500000, 500000, 500000, 500000, 500000, 500000, 500000, 500000")); //deceleration
-#else		//contour mode
+#elif defined CONTOUR_MODE
 	x_e(GCmd(*g, "TM  1000"));
 	x_e(GCmd(*g, "CM  ABCDEF"));
 	x_e(GCmd(*g, "DT  7"));
 	//x_e(GCmd(*g, "DM  delta[8], curpos[8], tarpos[8]"));
 #endif
+
+	x_e(GCmd(*g, "SH"));
 
 	return G_NO_ERROR;
 }

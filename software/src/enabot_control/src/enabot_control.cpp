@@ -127,20 +127,20 @@ void quit(int sig)
 int main(int argc, char** argv)
 {
 	ros::init(argc, argv, "enabot_mover");
-	ros::NodeHandle n2;
+	ros::NodeHandle r_nh, l_nh;
 
 
 	ROS_INFO("...connect to galil motion controller... return conde is [%d]",  MotorControllerInit(&g));
 
 #ifdef __RIGHT_ARM__
 	//Start the ActionServer for JointTrajectoryActions and GripperCommandActions from MoveIT
-	R_TrajectoryServer r_tserver(n2, "enabot_mover_r/follow_joint_trajectory", boost::bind(&r_executeTrajectory, _1, &r_tserver), false);
+	R_TrajectoryServer r_tserver(r_nh, "enabot_mover_r/follow_joint_trajectory", boost::bind(&r_executeTrajectory, _1, &r_tserver), false);
   	ROS_INFO("TrajectoryActionServer: Starting");
   	r_tserver.start();
 #endif //__RIGHT_ARM__
 
 #ifdef __LEFT_ARM__
-	L_TrajectoryServer l_tserver(n2, "enabot_mover_l/follow_joint_trajectory", boost::bind(&l_executeTrajectory, _1, &l_tserver), false);
+	L_TrajectoryServer l_tserver(l_nh, "enabot_mover_l/follow_joint_trajectory", boost::bind(&l_executeTrajectory, _1, &l_tserver), false);
   	ROS_INFO("TrajectoryActionServer: Starting");
   	l_tserver.start();
 #endif //__LEFT_ARM__
@@ -168,10 +168,10 @@ namespace dual_arm_robot
 		flag_stop_requested = false;
 		//this deside the control msg send frequency 
 		cycleTime = 20.0;// in ms
-		nrOfJoints = MAX_JOINT_NUM;
+		JointsNum = MAX_JOINT_NUM;
 
 #ifdef __RIGHT_ARM__
-		r_setPointState.j[0] =  0.0;	// values are initialized with 6 field to be usable for rob right arm 
+		r_setPointState.j[0] =  0.0;	// initialized values to be usable for rob right arm 
 		r_setPointState.j[1] =  0.0;
 		r_setPointState.j[2] =  0.0;
 		r_setPointState.j[3] =  0.0;
@@ -182,7 +182,7 @@ namespace dual_arm_robot
 #endif //__RIGHT_ARM__
 
 #ifdef __LEFT_ARM__
-		l_setPointState.j[0] =  0.0;	// values are initialized with 6 field to be usable for rob left arm 
+		l_setPointState.j[0] =  0.0;	// initialized values to be usable for rob left arm 
 		l_setPointState.j[1] =  0.0;
 		l_setPointState.j[2] =  0.0;
 		l_setPointState.j[3] =  0.0;
@@ -193,7 +193,7 @@ namespace dual_arm_robot
 #endif //__LEFT_ARM__
 
 		// when starting up (or when reading the HW joint values) the target position has to be aligned with the setPoint position
-		for(int i=0; i<nrOfJoints; i++)
+		for(int i=0; i<JointsNum; i++)
 		{
 #ifdef __RIGHT_ARM__
 			r_targetState.j[i] = r_setPointState.j[i];
@@ -212,7 +212,7 @@ namespace dual_arm_robot
 		l_targetState.duration = 0.0;	//init the timeStamp
 #endif //__LEFT_ARM__
 
-		for(int j=0; j<=nrOfJoints; j++)
+		for(int j=0; j<=JointsNum; j++)
 		{
 #ifdef __RIGHT_ARM__
 			r_controlData[j] = 0;
@@ -264,7 +264,7 @@ namespace dual_arm_robot
 #endif //__LEFT_ARM__
 
 		// Publish the current joint states
-		pubJoints = n.advertise<sensor_msgs::JointState>("/joint_states", 1);
+		pubJoints = nh.advertise<sensor_msgs::JointState>("/joint_states", 1);
 
 	}
 
@@ -315,13 +315,13 @@ namespace dual_arm_robot
 			r_targetState = r_targetPointList.front();
 			r_targetPointList.pop_front();
 
-			for(int i=0; i<nrOfJoints; i++)
+			for(int i=0; i<JointsNum; i++)
 			{
 				r_setPointState.j[i] = r_targetState.j[i];
 			}
 			r_setPointState.duration = r_targetState.duration;
 			
-			for(j=0;j<nrOfJoints;j++)
+			for(j=0;j<JointsNum;j++)
 			{
 				r_controlData[j] = r_setPointState.j[j];
 			}
@@ -337,13 +337,13 @@ namespace dual_arm_robot
 			l_targetState = l_targetPointList.front();
 			l_targetPointList.pop_front();
 
-			for(int i=0; i<nrOfJoints; i++)
+			for(int i=0; i<JointsNum; i++)
 			{
 				l_setPointState.j[i] = l_targetState.j[i];
 			}
 			l_setPointState.duration = l_targetState.duration;
 			
-			for(j=0;j<nrOfJoints;j++)
+			for(j=0;j<JointsNum;j++)
 			{
 				l_controlData[j] = l_setPointState.j[j];
 			}
@@ -358,7 +358,7 @@ namespace dual_arm_robot
 	{
 
 		int i = 0;
-		for(i=0; i<=nrOfJoints; i++)//write right arm control data
+		for(i=0; i<=JointsNum; i++)//write right arm control data
 		{
 #ifdef __RIGHT_ARM__
 			r_executeData[i] = r_controlData[i];
@@ -385,7 +385,7 @@ namespace dual_arm_robot
 			ROS_INFO("Right arm MSG [%f][%f][%f][%f][%f][%f][%f][%f]", r_executeData[0],r_executeData[1],r_executeData[2],r_executeData[3],r_executeData[4],r_executeData[5],r_executeData[6],r_executeData[7]);
 
 			//save the date to old
-			for (int i=0;i<=nrOfJoints;i++)
+			for (int i=0;i<=JointsNum;i++)
 			{
 				r_executeData_old[i] = r_executeData[i];
 			}
@@ -410,7 +410,7 @@ namespace dual_arm_robot
 			ROS_INFO("Left arm MSG [%f][%f][%f][%f][%f][%f][%f][%f]", l_executeData[0],l_executeData[1],l_executeData[2],l_executeData[3],l_executeData[4],l_executeData[5],l_executeData[6],l_executeData[7]);
 
 			//save the date to old
-			for (int i=0;i<=nrOfJoints;i++)
+			for (int i=0;i<=JointsNum;i++)
 			{
 				l_executeData_old[i] = l_executeData[i];
 			}
