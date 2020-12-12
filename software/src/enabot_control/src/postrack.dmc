@@ -1,0 +1,12 @@
+#PTRACK
+CE 2
+MT -2
+AC 250000
+DC 250000
+SP 50000
+PT 1
+DM pos[7]
+#LOOP
+PA pos[0],pos[1],pos[2],pos[3],pos[4],pos[5],pos[6]
+AP pos[0],pos[1],pos[2],pos[3],pos[4],pos[5],pos[6]
+JP #LOOP

@@ -1,0 +1,17 @@
+#CONTOUR
+
+i=0
+
+#LOOP
+
+delta[i]=tarpos[i]-curpos[i]
+
+curpos[i]=tarpos[i]
+
+i=i+1
+
+JP #LOOP, i<8
+
+CD delta[0],delta[1],delta[2],delta[3],delta[4],delta[5],delta[6],delta[7]
+
+EN
