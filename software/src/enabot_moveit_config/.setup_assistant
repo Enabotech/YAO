@@ -1,7 +1,7 @@
 moveit_setup_assistant_config:
   URDF:
     package: enabot_description
-    relative_path: urdf/enabot.urdf1.xacro
+    relative_path: urdf/enabot.urdf.xacro
   SRDF:
     relative_path: config/enabot.srdf
   CONFIG:

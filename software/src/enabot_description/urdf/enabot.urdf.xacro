@@ -2,25 +2,360 @@
 <robot name="enabot" xmlns:xacro="http://www.ros.org/wiki/xacro">
   <!-- Import Rviz colors -->
   <xacro:include filename="$(find enabot_description)/urdf/materials.xacro" />
-  <!-- Import utilities -->
+  <!-- Import all Gazebo-customization elements, including Gazebo colors -->
+  <xacro:include filename="$(find enabot_description)/urdf/enabot.gazebo.xacro" />
+  <!-- Import Transmissions -->
+  <xacro:include filename="$(find enabot_description)/urdf/enabot.transmission.xacro" />
+  <!-- Include Utilities -->
   <xacro:include filename="$(find enabot_description)/urdf/utilities.xacro" />
-  <!--Import the enabot macro -->
-  <xacro:include filename="$(find enabot_description)/urdf/enabot.xacro"/>
   <!--Import the enabot servo gripper macro -->
   <xacro:include filename="$(find enabot_description)/urdf/enabot_servo_gripper.xacro"/>
- <!-- Import Gazebo plugins -->
+  <!-- Import Gazebo plugins -->
   <xacro:include filename="$(find enabot_description)/gazebo/gazebo.urdf.xacro"/>
+
+  <!-- some constants -->
+  <!-- <xacro:property name="safety_controller_k_pos" value="100" />
+  <xacro:property name="safety_controller_k_vel" value="2" /> -->
+  <xacro:property name="joint_damping" value="0.5" />
+  <xacro:property name="max_effort" value="300"/>
+
+
+
+  <xacro:macro name="enabot" params="parent name hardware_interface">
+
+    <!--joint between {parent} and base-->
+    <joint name="${parent}_joint" type="fixed">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <parent link="${parent}"/>
+      <child link="${name}_base"/>
+    </joint>
+
+    <link name="${name}_base">
+      <inertial>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <mass value="15"/>
+        <inertia ixx="0.5"  ixy="0"  ixz="0" iyy="0.6" iyz="0" izz="0.3" />
+      </inertial>
+
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://enabot_description/meshes/base.stl"/>
+        </geometry>
+        <material name="Light_Grey"/>
+      </visual>
+
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://enabot_description/meshes/coarse/base.stl"/>
+        </geometry>
+        <material name="Green"/>
+      </collision>
+
+    </link>
+
+
+   <!--///////////////////////////////////// RIGHT ARM ////////////////////////////////  -->
+
+   <!-- joint between body and link_1_r -->
+    <joint name="${name}_joint_1_r" type="revolute">
+      <!-- <parent link="${name}_body"/> -->
+      <parent link="${name}_base"/>
+      <child link="${name}_link_1_r"/>
+      <!-- <origin xyz="0.05355 -0.0725 0.41492" rpy="-0.9795   -0.5682   -2.3155"/> -->
+      <origin xyz="0 -0.25626 0.565" rpy="${PI / 2} ${PI / 6} 0"/>
+      <axis xyz="0 0 1"/>
+      <limit lower="${-168.5 * PI / 180}" upper="${168.5 * PI / 180}"
+             effort="${max_effort}" velocity="${180 * PI / 180}" />
+      <!--   <safety_controller soft_lower_limit="${-168 * M_PI / 180}"
+           soft_upper_limit="${168 * M_PI / 180}"
+           k_position="${safety_controller_k_pos}"
+           k_velocity="${safety_controller_k_vel}"/> -->
+      <dynamics damping="${joint_damping}"/>
+    </joint>
+
+   <link name="${name}_link_1_r">
+      <inertial>
+        <!-- <origin xyz="0 -0.03 0.12" rpy="0 0 0"/> -->
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <mass value="2"/>
+        <inertia ixx="0.1"  ixy="0"  ixz="0" iyy="0.1" iyz="0" izz="0.1" />
+      </inertial>
+
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://enabot_description/meshes/l1r.stl"/>
+        </geometry>
+        <material name="Grey"/>
+      </visual>
+
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://enabot_description/meshes/coarse/l1r.stl"/>
+        </geometry>
+        <material name="Grey"/>
+      </collision>
+    </link>
+
+   <!-- joint between link_1_r and link_2_r -->
+    <joint name="${name}_joint_2_r" type="revolute">
+      <parent link="${name}_link_1_r"/>
+      <child link="${name}_link_2_r"/>
+      <origin xyz="0.03 0.0 0.1" rpy="${PI / 2} ${PI / 2} 0.0"/>
+      <axis xyz="0 0 1"/>
+      <limit lower="${-143.5 * PI / 180}" upper="${43.5 * PI / 180}"
+             effort="${max_effort}" velocity="${180 * PI / 180}" />
+      <!--   <safety_controller soft_lower_limit="${-168 * M_PI / 180}"
+           soft_upper_limit="${168 * M_PI / 180}"
+           k_position="${safety_controller_k_pos}"
+           k_velocity="${safety_controller_k_vel}"/> -->
+      <dynamics damping="${joint_damping}"/>
+    </joint>
+
+   <link name="${name}_link_2_r">
+      <inertial>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <mass value="2"/>
+        <inertia ixx="0.1"  ixy="0"  ixz="0" iyy="0.1" iyz="0" izz="0.1" />
+      </inertial>
+
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://enabot_description/meshes/l2r.stl"/>
+        </geometry>
+        <material name="Grey"/>
+      </visual>
+
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://enabot_description/meshes/coarse/l2r.stl"/>
+        </geometry>
+        <material name="Grey"/>
+      </collision>
+    </link>
+
+   <!-- joint between link_2_r and link_3_r -->
+    <joint name="${name}_joint_7_r" type="revolute">
+      <parent link="${name}_link_2_r"/>
+      <child link="${name}_link_3_r"/>
+      <origin xyz="-0.03 0.17283 0.0" rpy="${-PI / 2} ${-PI} 0.0"/>
+      <axis xyz="0 0 1"/>
+      <limit lower="${-168.5 * PI / 180}" upper="${168.5 * PI / 180}"
+             effort="${max_effort}" velocity="${180 * PI / 180}" />
+      <!--   <safety_controller soft_lower_limit="${-168 * M_PI / 180}"
+           soft_upper_limit="${168 * M_PI / 180}"
+           k_position="${safety_controller_k_pos}"
+           k_velocity="${safety_controller_k_vel}"/> -->
+      <dynamics damping="${joint_damping}"/>
+    </joint>
+
+   <link name="${name}_link_3_r">
+      <inertial>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <mass value="2"/>
+        <inertia ixx="0.1"  ixy="0"  ixz="0" iyy="0.1" iyz="0" izz="0.1" />
+      </inertial>
+
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://enabot_description/meshes/l3r.stl"/>
+        </geometry>
+        <material name="Grey"/>
+      </visual>
+
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://enabot_description/meshes/coarse/l3r.stl"/>
+        </geometry>
+        <material name="Grey"/>
+      </collision>
+    </link>
+
+   <!-- joint between link_3_r and link_4_r -->
+    <joint name="${name}_joint_3_r" type="revolute">
+      <parent link="${name}_link_3_r"/>
+      <child link="${name}_link_4_r"/>
+      <origin xyz="-0.04188 0.0 0.07873" rpy="${PI / 2} ${- PI / 3} 0.0"/>
+      <axis xyz="0 0 1"/>
+      <limit lower="${-123.5 * PI / 180}" upper="${80 * PI / 180}"
+             effort="${max_effort}" velocity="${180 * PI / 180}" />
+      <!--   <safety_controller soft_lower_limit="${-168 * M_PI / 180}"
+           soft_upper_limit="${168 * M_PI / 180}"
+           k_position="${safety_controller_k_pos}"
+           k_velocity="${safety_controller_k_vel}"/> -->
+      <dynamics damping="${joint_damping}"/>
+    </joint>
+
+   <link name="${name}_link_4_r">
+      <inertial>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <mass value="2"/>
+        <inertia ixx="0.1"  ixy="0"  ixz="0" iyy="0.1" iyz="0" izz="0.1" />
+      </inertial>
+
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://enabot_description/meshes/l4r.stl"/>
+        </geometry>
+        <material name="Grey"/>
+      </visual>
+
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://enabot_description/meshes/coarse/l4r.stl"/>
+        </geometry>
+        <material name="Grey"/>
+      </collision>
+    </link>
+
+   <!-- joint between link_4_r and link_5_r -->
+    <joint name="${name}_joint_4_r" type="revolute">
+      <parent link="${name}_link_4_r"/>
+      <child link="${name}_link_5_r"/>
+      <origin xyz="0.0405 0.16461 0.0" rpy="-${PI / 2} 0.0 0.0"/>
+      <axis xyz="0 0 1"/>
+      <limit lower="${-290 * PI / 180}" upper="${290 * PI / 180}"
+             effort="${max_effort}" velocity="${400 * PI / 180}" />
+      <!--   <safety_controller soft_lower_limit="${-168 * M_PI / 180}"
+           soft_upper_limit="${168 * M_PI / 180}"
+           k_position="${safety_controller_k_pos}"
+           k_velocity="${safety_controller_k_vel}"/> -->
+      <dynamics damping="${joint_damping}"/>
+    </joint>
+
+   <link name="${name}_link_5_r">
+      <inertial>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <mass value="2"/>
+        <inertia ixx="0.1"  ixy="0"  ixz="0" iyy="0.1" iyz="0" izz="0.1" />
+      </inertial>
+
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://enabot_description/meshes/l5r.stl"/>
+        </geometry>
+        <material name="Grey"/>
+      </visual>
+
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://enabot_description/meshes/coarse/l5r.stl"/>
+        </geometry>
+        <material name="Grey"/>
+      </collision>
+    </link>
+
+   <!-- joint between link_5_r and link_6_r -->
+    <joint name="${name}_joint_5_r" type="revolute">
+      <parent link="${name}_link_5_r"/>
+      <child link="${name}_link_6_r"/>
+      <origin xyz="-0.027 0 0.10039" rpy="${PI / 2} 0.0 0.0"/>
+      <axis xyz="0 0 1"/>
+      <limit lower="${-88 * PI / 180}" upper="${138 * PI / 180}"
+             effort="${max_effort}" velocity="${400 * PI / 180}" />
+      <!--   <safety_controller soft_lower_limit="${-168 * M_PI / 180}"
+           soft_upper_limit="${168 * M_PI / 180}"
+           k_position="${safety_controller_k_pos}"
+           k_velocity="${safety_controller_k_vel}"/> -->
+      <dynamics damping="${joint_damping}"/>
+    </joint>
+
+   <link name="${name}_link_6_r">
+      <inertial>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <mass value="2"/>
+        <inertia ixx="0.1"  ixy="0"  ixz="0" iyy="0.1" iyz="0" izz="0.1" />
+      </inertial>
+
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://enabot_description/meshes/l6r.stl"/>
+        </geometry>
+        <material name="Grey"/>
+      </visual>
+
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://enabot_description/meshes/coarse/l6r.stl"/>
+        </geometry>
+        <material name="Grey"/>
+      </collision>
+    </link>
+
+   <!-- joint between link_6_r and link_7_r -->
+    <joint name="${name}_joint_6_r" type="revolute">
+      <parent link="${name}_link_6_r"/>
+      <child link="${name}_link_7_r"/>
+      <origin xyz="0.027 0.029 0.0" rpy="-${PI / 2} 0.0 0.0"/>
+      <axis xyz="0 0 1"/>
+      <limit lower="${-229 * PI / 180}" upper="${229 * PI / 180}"
+             effort="${max_effort}" velocity="${400 * PI / 180}" />
+      <!--   <safety_controller soft_lower_limit="${-168 * M_PI / 180}"
+           soft_upper_limit="${168 * M_PI / 180}"
+           k_position="${safety_controller_k_pos}"
+           k_velocity="${safety_controller_k_vel}"/> -->
+      <dynamics damping="${joint_damping}"/>
+    </joint>
+
+   <link name="${name}_link_7_r">
+      <inertial>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <mass value="2"/>
+        <inertia ixx="0.1"  ixy="0"  ixz="0" iyy="0.1" iyz="0" izz="0.1" />
+      </inertial>
+
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://enabot_description/meshes/l7r.stl"/>
+        </geometry>
+        <material name="Grey"/>
+      </visual>
+
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://enabot_description/meshes/coarse/l7r.stl"/>
+        </geometry>
+        <material name="Grey"/>
+      </collision>
+    </link>
+
+
+    <!--Extensions -->
+    <xacro:enabot_gazebo name="${name}" />
+    <xacro:enabot_transmission name="${name}" hardware_interface="${hardware_interface}"/>
+
+  </xacro:macro>
+
+
+
 
   <!-- Fix to world just for testing -->
   <link name="world"/>
 
-  <!--enabot-->
-  <xacro:enabot name="enabot" hardware_interface="$(arg prefix)" parent="world">
-    <origin xyz="0 0 0.1" rpy="0 0 0" />
+  <!--enabot
+  <xacro:enabot name="enabot" hardware_interface="${arg prefix}" parent="world">-->
+  <xacro:enabot name="enabot" hardware_interface="PositionJointInterface" parent="world">
+
+
   </xacro:enabot>
 
   <!--right gripper
-  <xacro:enabot_servo_gripper name="gripper_r" hardware_interface="$(arg prefix)" parent="enabot_link_7_r">
+  <xacro:enabot_servo_gripper name="gripper_r" hardware_interface="PositionJointInterface" parent="enabot_link_7_r">
     <origin xyz="0 0 0.007" rpy="0 0 ${PI}" />
   </xacro:enabot_servo_gripper> -->
 

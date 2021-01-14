@@ -5,8 +5,8 @@
   <arg name="hardware_interface" default="PositionJointInterface"/>
 
   <!-- Load the URDF with the given hardware interface into the ROS Parameter Server
-  <param name="robot_description" command="$(find xacro)/xacro.py '$(find enabot_description)/urdf/enabot.urdf1.xacro' prefix:=$(arg hardware_interface)" /> -->
-  <param name="robot_description" command="$(find xacro)/xacro.py $(find enabot_description)/urdf/enabot.urdf1.xacro" />
+  <param name="robot_description" command="$(find xacro)/xacro.py '$(find enabot_description)/urdf/enabot.urdf.xacro' prefix:=$(arg hardware_interface)" /> -->
+  <param name="robot_description" command="$(find xacro)/xacro.py $(find enabot_description)/urdf/enabot.urdf.xacro" />
 
   <!-- send fake joint values -->
   <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">

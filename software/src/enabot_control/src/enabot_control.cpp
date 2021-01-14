@@ -231,15 +231,15 @@ namespace dual_arm_robot
 		r_msgJointsCurrent.position[0] = 0.0;
 		r_msgJointsCurrent.name[1] ="enabot_joint_2_r";
 		r_msgJointsCurrent.position[1] = 0.0;
-		r_msgJointsCurrent.name[2] ="enabot_joint_7_r";
+		r_msgJointsCurrent.name[2] ="enabot_joint_3_r";
 		r_msgJointsCurrent.position[2] = 0.0;
-		r_msgJointsCurrent.name[3] ="enabot_joint_3_r";
+		r_msgJointsCurrent.name[3] ="enabot_joint_4_r";
 		r_msgJointsCurrent.position[3] = 0.0;
-		r_msgJointsCurrent.name[4] ="enabot_joint_4_r";
+		r_msgJointsCurrent.name[4] ="enabot_joint_5_r";
 		r_msgJointsCurrent.position[4] = 0.0;
-		r_msgJointsCurrent.name[5] ="enabot_joint_5_r";
+		r_msgJointsCurrent.name[5] ="enabot_joint_6_r";
 		r_msgJointsCurrent.position[5] = 0.0;
-		r_msgJointsCurrent.name[6] ="enabot_joint_6_r";
+		r_msgJointsCurrent.name[6] ="enabot_joint_7_r";
 		r_msgJointsCurrent.position[6] = 0.0;
 #endif //__RIGHT_ARM__
 
@@ -251,15 +251,15 @@ namespace dual_arm_robot
 		l_msgJointsCurrent.position[0] = 0.0;
 		l_msgJointsCurrent.name[1] ="enabot_joint_2_l";
 		l_msgJointsCurrent.position[1] = 0.0;
-		l_msgJointsCurrent.name[2] ="enabot_joint_7_l";
+		l_msgJointsCurrent.name[2] ="enabot_joint_3_l";
 		l_msgJointsCurrent.position[2] = 0.0;
-		l_msgJointsCurrent.name[3] ="enabot_joint_3_l";
+		l_msgJointsCurrent.name[3] ="enabot_joint_4_l";
 		l_msgJointsCurrent.position[3] = 0.0;
-		l_msgJointsCurrent.name[4] ="enabot_joint_4_l";
+		l_msgJointsCurrent.name[4] ="enabot_joint_5_l";
 		l_msgJointsCurrent.position[4] = 0.0;
-		l_msgJointsCurrent.name[5] ="enabot_joint_5_l";
+		l_msgJointsCurrent.name[5] ="enabot_joint_6_l";
 		l_msgJointsCurrent.position[5] = 0.0;
-		l_msgJointsCurrent.name[6] ="enabot_joint_6_l";
+		l_msgJointsCurrent.name[6] ="enabot_joint_7_l";
 		l_msgJointsCurrent.position[6] = 0.0;
 #endif //__LEFT_ARM__
 

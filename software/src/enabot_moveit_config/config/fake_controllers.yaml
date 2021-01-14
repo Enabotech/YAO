@@ -3,8 +3,8 @@ controller_list:
     joints:
       - enabot_joint_1_r
       - enabot_joint_2_r
-      - enabot_joint_7_r
       - enabot_joint_3_r
       - enabot_joint_4_r
       - enabot_joint_5_r
       - enabot_joint_6_r
+      - enabot_joint_7_r
