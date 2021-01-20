@@ -79,6 +79,8 @@ int MotorControllerInit(GCon *g)
 
 	x_e(GCmd(*g, "SH"));
 
+	for(int i=0; i<8; i++, Delta[i] = 0, CurPos[i] = 0){}
+
 	return G_NO_ERROR;
 }
 
