@@ -1,2 +1,2 @@
 # ENABOT-WEI
-Do something.
+WEI = Do something.
