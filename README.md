@@ -1,10 +1,13 @@
 # ENABOT-YAO
 第一代个人机械臂。
 ## Hardware/Electrics
-电机及驱动：东方减速步进电机套件。
-运动控制器：Galil DMC-2183/DMC-4080。
-主控单元：安装Ubuntu系统的PC。
-目前正在开发基于ODRIVE和VESC的开源无刷电机驱动及控制单元。
+### 电机及驱动
+东方减速步进电机套件。
+### 运动控制器
+Galil DMC-2183/DMC-4080。
+### 主控单元
+安装Ubuntu系统的PC。
+### 目前正在开发基于ODRIVE和VESC的开源无刷电机驱动及控制单元。
 ## Mechanism
 已完成。主要参考ABB IRB 14000机械臂。
 ## Software
