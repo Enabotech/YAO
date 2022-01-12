@@ -14,5 +14,5 @@ Galil DMC-2183/DMC-4080。
 未完成。目前仅完成基于ROS的MOVEIT+GAZEBO仿真系统搭建。
 
 ![enabot_arm_r_perspect_1440](https://user-images.githubusercontent.com/8104370/149099255-bc532e8e-d3bd-4380-b135-34b207abbc7d.JPG)
-![enabot_arm_r_bomb_perspect_720](https://user-images.githubusercontent.com/8104370/149098113-a87509fb-2088-44b1-95f2-73e3a8a871ed.jpg)
-![enabot_arm_r_bomb_top_720](https://user-images.githubusercontent.com/8104370/149098124-5e710c43-5825-46a7-b5de-40b299815f53.jpg)
+![enabot_arm_r_bomb_perspect_800](https://user-images.githubusercontent.com/8104370/149120148-8780bfe1-a17c-4675-8545-f16bef96c57f.JPG)
+![enabot_arm_r_bomb_top_800](https://user-images.githubusercontent.com/8104370/149120200-2b3bb86b-3533-41b5-a885-824d70bac211.JPG)
