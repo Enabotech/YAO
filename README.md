@@ -7,7 +7,7 @@
 * Galil DMC-2183/DMC-4080。
 * 目前正在开发基于ODRIVE和VESC的开源无刷电机驱动及控制单元。
 ### 主控单元
-安装Ubuntu系统的PC。
+* 安装Ubuntu系统的PC。
 ## 机械
 * 已完成。主要参考ABB IRB 14000机械臂。
 ## 软件
