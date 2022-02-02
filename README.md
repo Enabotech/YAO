@@ -15,5 +15,4 @@
 
 ![enabot_arm_r_perspect_a_800](https://user-images.githubusercontent.com/8104370/149146630-51af7a8b-8df5-4693-9e4d-eb09b8a69276.JPG)
 ![enabot_arm_r_perspect_b_800](https://user-images.githubusercontent.com/8104370/149146665-ef51cbf1-f9b1-4a13-9aef-64e633b4ccbd.JPG)
-![enabot_arm_r_bomb_perspect_800](https://user-images.githubusercontent.com/8104370/149120148-8780bfe1-a17c-4675-8545-f16bef96c57f.JPG)
 ![enabot_arm_r_bomb_top_800](https://user-images.githubusercontent.com/8104370/149120200-2b3bb86b-3533-41b5-a885-824d70bac211.JPG)
