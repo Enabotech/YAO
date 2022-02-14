@@ -1,5 +1,5 @@
 # ENABOT-YAO
-第一代个人机械臂。enabotech@126.com
+第一代个人机械臂。（enabotech@126.com）
 ## 电气
 ### 电机及驱动
 * 东方减速步进电机套件。
