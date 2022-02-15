@@ -12,7 +12,7 @@ enabotech@126.com
 ### 主控单元
 * 基于Ubuntu + ROS Kinetic的PC系统。
 ## 机械
-* 已完成。主要参考ABB IRB 14000机械臂。
+* 已完成。主要参考ABB IRB 14000机械臂自行设计。
 ## 软件
 * 目前完成基于ROS的MOVEIT+GAZEBO仿真系统搭建。
 
