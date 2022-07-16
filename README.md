@@ -19,5 +19,3 @@ enabotech@126.com
 ![enabot_yao_views](https://user-images.githubusercontent.com/8104370/178981727-d7a7a5aa-dde7-4a82-aa93-efd1ae59769b.jpg)
 ![enabot_arm_r_bomb_top_800](https://user-images.githubusercontent.com/8104370/149120200-2b3bb86b-3533-41b5-a885-824d70bac211.JPG)
 ![enabot_yao_prj_spec](https://user-images.githubusercontent.com/8104370/178981737-4663297f-a54c-4832-a1d7-b44af2ec0b84.jpg)
-https://user-images.githubusercontent.com/8104370/179326978-7933324a-ccce-4bde-b54a-956a4bc2d222.mp4
-
