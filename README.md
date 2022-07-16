@@ -1,5 +1,5 @@
 # ENABOT-YAO
-第一代个人机械臂。
+第一代个人机械臂。![第一代个人机械臂](https://user-images.githubusercontent.com/8104370/179326978-7933324a-ccce-4bde-b54a-956a4bc2d222.mp4)
 
 enabotech@126.com
 
