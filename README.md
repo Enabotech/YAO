@@ -19,5 +19,4 @@ enabotech@126.com
 ![enabot_yao_views](https://user-images.githubusercontent.com/8104370/178981727-d7a7a5aa-dde7-4a82-aa93-efd1ae59769b.jpg)
 ![enabot_arm_r_bomb_top_800](https://user-images.githubusercontent.com/8104370/149120200-2b3bb86b-3533-41b5-a885-824d70bac211.JPG)
 ![enabot_yao_prj_spec](https://user-images.githubusercontent.com/8104370/178981737-4663297f-a54c-4832-a1d7-b44af2ec0b84.jpg)
-![torque](https://user-images.githubusercontent.com/8104370/179385001-93582f76-aadf-4079-919d-2e51fedc2114.jpg)
-![torque](https://user-images.githubusercontent.com/8104370/179385004-7f842333-f759-4b81-84a0-7b2b39978474.jpg)
+![torque](https://user-images.githubusercontent.com/8104370/179385107-2be0092c-038e-48ea-93ed-c0f7e580d03d.jpg)![q](https://user-images.githubusercontent.com/8104370/179385109-47971507-e80d-45cd-b16c-0d3a8e9faa76.jpg)
