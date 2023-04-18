@@ -1,0 +1,496 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.5.1-0-g916b5db  Build Version: 1.5.7152.31018
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="enabot_v5">
+
+  <link name="world" />
+  <joint name="world_j" type="fixed">
+    <parent link="world" />
+    <child link = "base_link" />
+    <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+  </joint>
+
+  <!-- base_link to 'Base' Coordinates transform -->
+  <link name="base"/>
+  <joint name="base_link_base_fixed_j" type="fixed">
+    <!-- NOTE: this rotation is only needed as long as base_link itself is
+  			 not corrected wrt the real robot (ie: rotated over 180
+  			 degrees)
+    -->
+    <origin xyz="0 0 0" rpy="0 0 3.1415926535897"/>
+    <parent link="base_link"/>
+    <child link="base"/>
+  </joint>
+  
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="8.7733E-05 -7.046E-07 0.062579"
+        rpy="0 0 0" />
+      <mass
+        value="4.1111" />
+      <inertia
+        ixx="0.022253"
+        ixy="1.5335E-06"
+        ixz="3.8456E-06"
+        iyy="0.022261"
+        iyz="4.7419E-07"
+        izz="0.031186" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://enabot_v5/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://enabot_v5/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="l1r">
+    <inertial>
+      <origin
+        xyz="-0.015803 0.022933 0.20637"
+        rpy="0 0 0" />
+      <mass
+        value="2.3481" />
+      <inertia
+        ixx="0.0051706"
+        ixy="0.00019244"
+        ixz="0.0009715"
+        iyy="0.0062249"
+        iyz="-0.00069757"
+        izz="0.003198" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://enabot_v5/meshes/l1r.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://enabot_v5/meshes/l1r.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="l1r_base_j"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="l1r" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-2.9409"
+      upper="2.9409"
+      effort="80"
+      velocity="3.1416" />
+  </joint>
+  <link
+    name="l2r">
+    <inertial>
+      <origin
+        xyz="0.023041 -0.089253 -0.026946"
+        rpy="0 0 0" />
+      <mass
+        value="3.4135" />
+      <inertia
+        ixx="0.0081871"
+        ixy="0.0011548"
+        ixz="-0.00031124"
+        iyy="0.006603"
+        iyz="0.00095289"
+        izz="0.0097927" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://enabot_v5/meshes/l2r.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://enabot_v5/meshes/l2r.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="l2r_l1r_j"
+    type="revolute">
+    <origin
+      xyz="-0.036 0 0.2571"
+      rpy="-1.5708 0 0" />
+    <parent
+      link="l1r" />
+    <child
+      link="l2r" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-2.5045"
+      upper="0.7592"
+      effort="80"
+      velocity="3.1416" />
+  </joint>
+  <link
+    name="l3r">
+    <inertial>
+      <origin
+        xyz="0.024932 0.02465 0.29649"
+        rpy="0 0 0" />
+      <mass
+        value="1.9423" />
+      <inertia
+        ixx="0.0038504"
+        ixy="-0.00020732"
+        ixz="-0.001056"
+        iyy="0.0049594"
+        iyz="-0.00039871"
+        izz="0.0031319" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://enabot_v5/meshes/l3r.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://enabot_v5/meshes/l3r.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="l3r_l2r_j"
+    type="revolute">
+    <origin
+      xyz="0.036 0 0"
+      rpy="1.5708 0 0" />
+    <parent
+      link="l2r" />
+    <child
+      link="l3r" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-2.1555"
+      upper="1.3963"
+      effort="80"
+      velocity="3.1416" />
+  </joint>
+  <link
+    name="l4r">
+    <inertial>
+      <origin
+        xyz="-0.030867 0.088045 0.022062"
+        rpy="0 0 0" />
+      <mass
+        value="2.0616" />
+      <inertia
+        ixx="0.0034288"
+        ixy="0.00064926"
+        ixz="-9.5477E-05"
+        iyy="0.0026988"
+        iyz="0.00026032"
+        izz="0.0046807" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://enabot_v5/meshes/l4r.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://enabot_v5/meshes/l4r.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="l4r_l3r_j"
+    type="revolute">
+    <origin
+      xyz="0.0486 0 0.3353"
+      rpy="1.5708 0 0" />
+    <parent
+      link="l3r" />
+    <child
+      link="l4r" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-2.9409"
+      upper="2.9409"
+      effort="80"
+      velocity="3.1416" />
+  </joint>
+  <link
+    name="l5r">
+    <inertial>
+      <origin
+        xyz="0.010361 0.027033 0.27077"
+        rpy="0 0 0" />
+      <mass
+        value="0.73045" />
+      <inertia
+        ixx="0.0020135"
+        ixy="-0.00014732"
+        ixz="-0.00038546"
+        iyy="0.0019846"
+        iyz="-0.00060009"
+        izz="0.00096902" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://enabot_v5/meshes/l5r.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://enabot_v5/meshes/l5r.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="l5r_l4r_j"
+    type="revolute">
+    <origin
+      xyz="-0.0486 0 0"
+      rpy="-1.5708 0 0" />
+    <parent
+      link="l4r" />
+    <child
+      link="l5r" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-5.0615"
+      upper="5.0615"
+      effort="50"
+      velocity="6.9813" />
+  </joint>
+  <link
+    name="l6r">
+    <inertial>
+      <origin
+        xyz="-0.014999 0.0085168 -0.0079261"
+        rpy="0 0 0" />
+      <mass
+        value="0.67663" />
+      <inertia
+        ixx="0.00043785"
+        ixy="-1.6217E-05"
+        ixz="7.1572E-06"
+        iyy="0.00048994"
+        iyz="-2.9976E-05"
+        izz="0.0006712" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://enabot_v5/meshes/l6r.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://enabot_v5/meshes/l6r.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="l6r_l5r_j"
+    type="revolute">
+    <origin
+      xyz="0.0324 0 0.3368"
+      rpy="-1.5708 0 0" />
+    <parent
+      link="l5r" />
+    <child
+      link="l6r" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1.5359"
+      upper="2.4086"
+      effort="50"
+      velocity="6.9813" />
+  </joint>
+  <link
+    name="l7r">
+    <inertial>
+      <origin
+        xyz="0.00017791 9.835E-05 0.038775"
+        rpy="0 0 0" />
+      <mass
+        value="0.097645" />
+      <inertia
+        ixx="2.812E-05"
+        ixy="-2.4295E-08"
+        ixz="-1.483E-07"
+        iyy="2.869E-05"
+        iyz="-3.7224E-08"
+        izz="4.8066E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://enabot_v5/meshes/l7r.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.89804 0.91765 0.92941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://enabot_v5/meshes/l7r.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="l7r_l6r_j"
+    type="revolute">
+    <origin
+      xyz="-0.0324 0 0"
+      rpy="1.5708 0 0" />
+    <parent
+      link="l6r" />
+    <child
+      link="l7r" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-3.9968"
+      upper="3.9968"
+      effort="50"
+      velocity="6.9813" />
+  </joint>
+
+  <joint name="ee_fixed_joint" type="fixed">
+    <parent link="l7r" />
+    <child link = "ee_link" />
+    <origin xyz="0.0 0 0.0468" rpy="0.0 0.0 0" />
+  </joint>
+  <link name="ee_link">
+    <collision>
+  	<geometry>
+  	  <box size="0.01 0.01 0.01"/>
+  	</geometry>
+  	<origin rpy="0 0 0" xyz="-0.01 0 0"/>
+    </collision>
+  </link>
+
+  <!-- Frame coincident with all-zeros TCP on UR controller -->
+  <link name="tool0"/>
+  <joint name="l7r_tool0_fixed_j" type="fixed">
+    <origin xyz="0 0 0.0468 " rpy="0 0 0"/>
+    <parent link="l7r"/>
+    <child link="tool0"/>
+  </joint>
+  
+</robot>
