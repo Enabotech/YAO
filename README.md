@@ -5,16 +5,16 @@ enabotech@126.com
 
 ## 电气
 ### 电机及驱动
-* 东方减速步进电机套件。
+* 东方减速步进电机套件。可根据实际需求自行选择合适的电机及驱动方案。
 ### 运动控制器
-* Galil DMC-2183/DMC-4080。
+* Galil DMC-2183/DMC-4080。可根据实际需求自行选择合适的控制器方案。
 ### 主控单元
 * 基于Ubuntu + ROS Kinetic的PC系统。
 ## 机械
 * 已完成设计及结构验证。主要参考ABB IRB 14000机械臂自行设计。
 ## 软件
 * 完成基于ROS的MOVEIT+GAZEBO仿真系统搭建。
-* 初步完成系统框架程序。
+* 初步完成系统框架程序。欢迎PR。
 ## 图纸
 ![enabot_yao_views](https://user-images.githubusercontent.com/8104370/178981727-d7a7a5aa-dde7-4a82-aa93-efd1ae59769b.jpg)
 ![enabot_arm_r_bomb_top_800](https://user-images.githubusercontent.com/8104370/149120200-2b3bb86b-3533-41b5-a885-824d70bac211.JPG)
