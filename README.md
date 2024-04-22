@@ -1,5 +1,5 @@
 # YAO
-[第一代个人机械臂](https://user-images.githubusercontent.com/8104370/179326978-7933324a-ccce-4bde-b54a-956a4bc2d222.mp4)
+https://github.com/Enabotech/YAO/assets/8104370/9be1e858-5e8b-4420-9542-9bed2b7c62a3
 
 enabotech@126.com
 
