@@ -20,10 +20,10 @@ enabotech@126.com
 |------|------|
 | $\theta_1$   | $$\arctan2(p_y, p_x) - \arcsin\left(\frac{a_1}{\sqrt{p_x^2 + p_y^2}}\right)$$ |
 | $\theta_2$   | $$\arctan2\left( p_z - d_1, \sqrt{p_x^2 + p_y^2} - a_1 \right) - \arctan2(a_3\sinθ_3, a_2 + a_3\cosθ_3)$$ |
-| $\theta_3$   | $$\pm \arccos\left( \frac{L^2 - a_2^2 - a_3^2}{2a_2a_3} \right)$$ |
+| $\theta_3$   | $$\pm \arccos\left( \frac{L^2 - a_2^2 - a_3^2}{2a_2a_3} \right)\quad(\text{±号对应肘部"up/down"两种构型})$$ |
 | $\theta_4$   | $$φ - (θ₂ + θ₃)$$ |
 | $\theta_5$   | $$\arctan2(r_{32}, r_{31})$$ |
-| $\theta_6$   | $$\arctan2(\sqrt{r_{11}^2 + r_{21}^2}, r_{33})$$ |
+| $\theta_6$   | $$\arctan2(\sqrt{r_{11}^2 + r_{21}^2}, r_{33})\quad(\text{为零时退化为万向节锁})$$ |
 | $\theta_7$   | $$\arctan2(r_{23}, -r_{13})$$ |
 | $\phi$       | $$\arg\min \sum_{i=1}^7 (θ_i - θ_{i,home})^2 \quad (\text{最小能量准则})$$ |
 | $L$          | $$\sqrt{(p_z - d_1)^2 + (\sqrt{p_x^2 + p_y^2} - a_1)^2}$$ |
