@@ -15,6 +15,19 @@ enabotech@126.com
 ## 软件
 * 完成基于ROS的MOVEIT+GAZEBO仿真系统搭建。
 * 初步完成系统框架程序。欢迎PR。
+## 逆运动学解析解
+| 关节 | 公式 |
+|------|------|
+| $\theta_1$   | $$\arctan2(p_{w,y}, p_{w,x})$$ |
+| $\theta_2$   | $$\arctan2\left( \sqrt{p_{w,x}^2 + p_{w,y}^2}, p_{w,z} - d_1 \right)$$ |
+| $\theta_3$   | $$\arctan2(y_e, x_e) - \arctan2(a_4 \sin\theta_4, a_3 + a_4 \cos\theta_4)$$ |
+| $\theta_4$   | $$\pm \arccos\left( \frac{\|p_w - p_s\|^2 - a_3^2 - L_4^2}{2a_3a_4} \right)$$ |
+| $\theta_5$   | $$\arctan2(r_{23}, r_{13})$$ |
+| $\theta_6$   | $$\arccos(r_{33})$$ |
+| $\theta_7$   | $$\arctan2(r_{32}, -r_{31})$$ |
+| $p_w$        | $$p - d_7 \cdot R \cdot [0,0,1]^T$$ |
+| $p_s$        | $$[a_1\cos\theta_1, a_1\sin\theta_1, d_1]^T$$ |
+| $p_e$        | $$p_s + R_2^0 \cdot [0,0,d_3]^T + R_3^0 \cdot [a_3,0,0]^T$$ |
 ## 图纸
 ![enabot_yao_prj_spec](https://user-images.githubusercontent.com/8104370/178981737-4663297f-a54c-4832-a1d7-b44af2ec0b84.jpg)
 ![t](https://user-images.githubusercontent.com/8104370/179392462-123128de-52c5-4b24-8725-53f92fceb417.jpg)
