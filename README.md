@@ -21,7 +21,7 @@ enabotech@126.com
 | $\theta_1$   | $$\arctan2(p_y, p_x) - \arcsin\left(\frac{a_1}{\sqrt{p_x^2 + p_y^2}}\right)$$ |
 | $\theta_2$   | $$\arctan2\left( p_z - d_1, \sqrt{p_x^2 + p_y^2} - a_1 \right) - \arctan2(a_3\sinθ_3, a_2 + a_3\cosθ_3)$$ |
 | $\theta_3$   | $$\pm \arccos\left( \frac{L^2 - a_2^2 - a_3^2}{2a_2a_3} \right)\quad(\text{±号对应肘部"up/down"两种构型})$$ |
-| $\theta_4$   | $$φ - (\theta_2 + \theta_3)$$ |
+| $\theta_4$   | $$\phi - (\theta_2 + \theta_3)$$ |
 | $\theta_5$   | $$\arctan2(r_{32}, r_{31})$$ |
 | $\theta_6$   | $$\arctan2(\sqrt{r_{11}^2 + r_{21}^2}, r_{33})\quad(\text{为零时退化为万向节锁})$$ |
 | $\theta_7$   | $$\arctan2(r_{23}, -r_{13})$$ |
