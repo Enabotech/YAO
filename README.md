@@ -15,8 +15,8 @@ enabotech@126.com
 ## 软件
 * 完成基于ROS的MOVEIT+GAZEBO仿真系统搭建。
 * 初步完成系统框架程序。欢迎PR。
-## 逆运动学解析解
-| 关节 | 解析解 |
+## 逆运动学
+| 参数 | 解析解 |
 |------|------|
 | $\theta_1$   | $$\arctan2(p_y, p_x) - \arcsin\left(\frac{a_1}{\sqrt{p_x^2 + p_y^2}}\right)$$ |
 | $\theta_2$   | $$\arctan2\left( p_z - d_1, \sqrt{p_x^2 + p_y^2} - a_1 \right) - \arctan2(a_3\sinθ_3, a_2 + a_3\cosθ_3)$$ |
