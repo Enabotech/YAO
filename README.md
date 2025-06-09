@@ -26,8 +26,8 @@ enabotech@126.com
 | $\theta_6$   | $$\arctan2 \left( \sqrt{r_{11}^2 + r_{21}^2}, r_{33} \right)\quad(\text{为零时退化为万向节锁})$$ |
 | $\theta_7$   | $$\arctan2 \left( r_{23}, -r_{13} \right)$$ |
 | $\mathbf{p}_{end}$ | $$[p_x, p_y, p_z]^T$$ |
-| $L$          | $$\sqrt{(p_z - d_1)^2 + (\sqrt{p_x^2 + p_y^2} - a_1)^2}$$ |
-| $\phi$       | $$\arg\min \sum_{i=1}^7 (\theta_i - \theta_{i,home})^2 \quad (\text{最小能量准则})$$ |
+| $L$          | $$\sqrt{(p_z - d_1)^2 + \left( \sqrt{p_x^2 + p_y^2} - a_1 \right)^2}$$ |
+| $\phi$       | $$\arg\min \sum_{i=1}^7 \left(\theta_i - \theta_{i,home}\right)^2 \quad (\text{最小能量准则})$$ |
 ## 图纸
 ![enabot_yao_prj_spec](https://user-images.githubusercontent.com/8104370/178981737-4663297f-a54c-4832-a1d7-b44af2ec0b84.jpg)
 ![t](https://user-images.githubusercontent.com/8104370/179392462-123128de-52c5-4b24-8725-53f92fceb417.jpg)
