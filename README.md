@@ -22,11 +22,11 @@ enabotech@126.com
 | $\theta_2$   | $$\arctan2\left( p_z - d_1, \sqrt{p_x^2 + p_y^2} - a_1 \right) - \arctan2(a_3\sin{\theta_3}, a_2 + a_3\cos{\theta_3})$$ |
 | $\theta_3$   | $$\pm \arccos{\frac{L^2 - a_2^2 - a_3^2}{2a_2a_3}}\quad(\text{±号对应肘部"up/down"两种构型})$$ |
 | $\theta_4$   | $$\phi - (\theta_2 + \theta_3)$$ |
-| $\theta_5$   | $$\arctan2(r_{32}, r_{31})$$ |
+| $\theta_5$   | $$\arctan2 \left(r_{32}, r_{31}\right)$$ |
 | $\theta_6$   | $$\arctan2 \left( \sqrt{r_{11}^2 + r_{21}^2}, r_{33} \right)\quad(\text{为零时退化为万向节锁})$$ |
 | $\theta_7$   | $$\arctan2 \left( r_{23}, -r_{13} \right)$$ |
 | $\mathbf{p}_{end}$ | $$[p_x, p_y, p_z]^T$$ |
-| $L$          | $$\sqrt{(p_z - d_1)^2 + \left( \sqrt{p_{x}^2 + p_{y}^2} - a_1 \right)^2}$$ |
+| $L$          | $$\sqrt{(p_z - d_1)^2 + \left( \sqrt{{p_{x}^2 + p_{y}^2}} - a_1 \right)^2}$$ |
 | $\phi$       | $$\arg\min \sum_{i=1}^7 \left(\theta_i - \theta_{i,home}\right)^2 \quad (\text{最小能量准则})$$ |
 ## 图纸
 ![enabot_yao_prj_spec](https://user-images.githubusercontent.com/8104370/178981737-4663297f-a54c-4832-a1d7-b44af2ec0b84.jpg)
