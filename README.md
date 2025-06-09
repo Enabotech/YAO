@@ -18,7 +18,7 @@ enabotech@126.com
 ## 逆运动学
 | 参数 | 解析解 |
 |------|------|
-| $\theta_1$   | $$\arctan2(p_y, p_x) - \arcsin\left(\frac{a_1}{\sqrt\left{p_x^2 + p_y^2\right}}\right)$$ |
+| $\theta_1$   | $$\arctan2(p_y, p_x) - \arcsin\left(\frac{a_1}{\sqrt{p_x^2 + p_y^2}}\right)$$ |
 | $\theta_2$   | $$\arctan2\left( p_z - d_1, \sqrt{p_x^2 + p_y^2} - a_1 \right) - \arctan2(a_3\sin{\theta_3}, a_2 + a_3\cos{\theta_3})$$ |
 | $\theta_3$   | $$\pm \arccos\left( \frac{L^2 - a_2^2 - a_3^2}{2a_2a_3} \right)\quad(\text{±号对应肘部"up/down"两种构型})$$ |
 | $\theta_4$   | $$\phi - (\theta_2 + \theta_3)$$ |
